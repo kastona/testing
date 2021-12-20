@@ -22,6 +22,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    {src: '~/plugins/social', mode: 'client'}
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -39,6 +40,8 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/auth',
+    '@nuxtjs/moment'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -51,11 +54,27 @@ export default {
     }
   },
 
+  axios: {
+    baseURL:'https://fob-news-backend.herokuapp.com/'
+  },
+
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: {url: '/users/login', method: 'post', propertyName: 'token'},
+          logout: {url: '/users/logout', method: 'post'},
+          user: {url: '/users/me', method: 'get', propertyName: 'user'}
+        }
+      }
+    }
+  },
+
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
         dark: {
           primary: colors.blue.darken2,

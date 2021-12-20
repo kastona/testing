@@ -1,6 +1,6 @@
 <template>
 <div id="app" >
-  <v-app style="background-color: #f1f1ff;" light>
+  <v-app  light>
     <v-app-bar
       color="primary"
       fixed
@@ -8,7 +8,7 @@
       app
       elevate-on-scroll
     >
-      <v-app-bar-nav-icon class="hidden-md-and-up" @click="drawer = true"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon class="hidden-md-and-up" @click="draw = true"></v-app-bar-nav-icon>
 
       <v-avatar
         size="40"
@@ -41,46 +41,63 @@
 
       <v-btn
         nuxt
-        :to="'/songs/audios'"
+        :to="'/news/politics'"
         class="ml-0 hidden-sm-and-down"
         text
       >
-        Top Audio
+        Politics
       </v-btn>
 
       <v-btn
         nuxt
-        :to="'/songs/videos'"
+        :to="'/news/crime'"
         class="ml-0 hidden-sm-and-down"
         text
       >
-        Top Videos
+        Crime
       </v-btn>
 
       <v-btn
         nuxt
-        :to="'/songs/new-releases'"
+        :to="'/interviews'"
         class="ml-0 hidden-sm-and-down"
         text
       >
-        New Releases
+       Interviews
       </v-btn>
 
+       <v-btn
+        nuxt
+        :to="'/videos'"
+        class="ml-0 hidden-sm-and-down"
+        text
+      >
+       Videos
+      </v-btn>
+
+ <v-btn
+        nuxt
+        :to="'/about'"
+        class="ml-0 hidden-sm-and-down"
+        text
+      >
+       About
+      </v-btn>
 
       <v-btn
-        
+        v-if="$auth.user"
         nuxt
         :to="'/admin'"
         class="ml-0 hidden-sm-and-down"
         text
-        color="accent"
+        color="black"
       >
        Admin
       </v-btn>
       
       
       <v-btn
-        
+        v-else
         nuxt
         :to="'/login'"
         class="ml-0"
@@ -92,10 +109,9 @@
     </v-app-bar>
 
     <v-navigation-drawer
-      v-model="drawer"
+      v-model="draw"
       fixed
-      clipped
-      app
+      bottom
     >
       <v-list
         nav
@@ -112,32 +128,21 @@
           </v-list-item>
 
 
-          <v-list-item nuxt :to="'/songs/audios'">
-            <v-list-item-icon>
-              <v-icon>mdi-music</v-icon>
-            </v-list-item-icon>
+          <v-list-item nuxt :to="'/news/politics'">
             <v-list-item-title>Politics</v-list-item-title>
           </v-list-item>
 
 
-          <v-list-item nuxt :to="'/songs/videos'">
-            <v-list-item-icon>
-              <v-icon>mdi-music</v-icon>
-            </v-list-item-icon>
+          <v-list-item nuxt :to="'/news/crime'">
             <v-list-item-title>Crime</v-list-item-title>
           </v-list-item>
 
-          <v-list-item nuxt :to="'/songs/new-releases'">
-            <v-list-item-icon>
-              <v-icon>mdi-music</v-icon>
-            </v-list-item-icon>
+          <v-list-item nuxt :to="'/interviews'">
+            
             <v-list-item-title>Interviews</v-list-item-title>
           </v-list-item>
 
-          <v-list-item nuxt :to="'/songs/new-releases'">
-            <v-list-item-icon>
-              <v-icon>mdi-music</v-icon>
-            </v-list-item-icon>
+          <v-list-item nuxt :to="'/about'">
             <v-list-item-title>About</v-list-item-title>
           </v-list-item>
 
@@ -172,13 +177,11 @@
     },
 
     data: () => ({
-      drawer: false,
+      draw: false,
     }),
 
     methods: {
-      onScroll (e) {
-        this.showTopSearch = e.target.scrollTop
-      },
+      
     },
 
     computed: {

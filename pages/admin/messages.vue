@@ -81,13 +81,12 @@
             Cancel
           </v-btn>
           <v-spacer></v-spacer>
-          <v-btn color="error" text @click="deleteMessage"> Delete </v-btn>
+          <v-btn :loadingd="loading" color="error" text @click="deleteMessage"> Delete </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
      <v-snackbar
       v-model="successfulSnackbar"
-      :multi-line="multiLine"
     >
       Successful!
 
@@ -118,8 +117,8 @@ export default {
   middleware: ["auth"],
   data: () => ({
     loader: null,
-    loading3: false,
-    successSnackbar: false,
+    loading: false,
+    successfulSnackbar: false,
     deleteDialog: false,
     lookedUpSong: null,
     showDialog: false,
@@ -165,13 +164,15 @@ export default {
       this.dialog3 = false;
     },
     async deleteMessage() {
+      this.loading = true
       await this.$axios.delete(`/messages/${this.lookedUpSong._id}`);
       this.messages = this.messages.filter((value, index, arr) => {
         return value._id !== this.lookedUpSong._id;
       });
       this.showDialog = false;
       this.deleteDialog = false;
-      this.successSnackbar = true;
+      this.successfulSnackbar = true;
+      this.loading = false
     },
 
    

@@ -8,7 +8,7 @@
         <v-row justify="center">
           <v-col cols="12" sm="10" md="12" lg="8">
             <div>
-              <h4 class="font-weight-medium contact-title mt-0">
+              <h4 class="font-weight-medium text-center contact-title mt-0">
                 For more information, contact us using the form below
               </h4>
               <form>
@@ -46,6 +46,15 @@
                   outlined
                   elevation="0"
                   :loading="loading"
+
+
+
+                  nuxt
+                large
+                
+                depressed
+                color="primary"
+               
                 >
                   Submit
                 </v-btn>

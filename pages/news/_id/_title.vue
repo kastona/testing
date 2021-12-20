@@ -32,9 +32,9 @@
             <h4 class="font-weight-bold text-justify">{{post.headline}}</h4>
           </v-col>
           <v-col cols="12">
-            <h4 class="text-justify subtitle-1 wrap-text">
+            <p class="text-justify body-2 wrap-text">
               {{ post.body }}
-            </h4>
+            </p>
           </v-col>
           <v-col cols="12" md="10" offset-md="1">
             <template v-if="post.video">
@@ -48,7 +48,7 @@
                 <v-btn class="" small color="">
                   <ShareNetwork
                     network="facebook"
-                    :url="`https://www.benedictionz.com/songs/${post._id}/${post.seoTitle}`"
+                    :url="`https://testing-kastona.vercel.app/${post._id}/${post.seoTitle}`"
                     :title="`${post.title} | FOB News`"
                   >
                     Share on Facebook

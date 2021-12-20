@@ -39,6 +39,14 @@
           <v-icon size="24px">mdi-twitter</v-icon>
         </v-btn>
 
+<v-btn
+          class="mx-4 white--text"
+          icon
+          nuxt
+          to="/login"
+        >
+          <v-icon size="24px">mdi-account</v-icon>
+        </v-btn>
       </v-card-text>
 
       <v-card-text class="white--text pt-0">

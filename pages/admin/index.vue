@@ -35,6 +35,20 @@
                 <span>New Post</span>
                 <i class="mdi mdi-arrow-right"></i>
               </v-btn>
+
+
+              <v-btn
+                nuxt
+                large
+                to="/admin/messages"
+                class="btn-custom-lg btn-arrow"
+                depressed
+                color="primary"
+                elevation="0"
+              >
+                <span>View Messages</span>
+                <i class="mdi mdi-inbox"></i>
+              </v-btn>
       </v-col>
     </v-row>
     <v-dialog v-model="showDialog" scrollable max-width="500px">
@@ -102,7 +116,7 @@
             Cancel
           </v-btn>
           <v-spacer></v-spacer>
-          <v-btn color="error" text @click="deletePost"> Delete </v-btn>
+          <v-btn color="error" :loading="deleteLoading" text @click="deletePost"> Delete </v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -141,6 +155,7 @@ export default {
     loading: false,
       selection: 1,
       snackbar: false,
+      deleteLoading: false,
     loader: null,
     loading3: false,
     deleteDialog: false,
@@ -214,12 +229,14 @@ export default {
       this.dialog3 = false;
     },
     async deletePost() {
+      this.deleteLoading = true
       await this.$axios.delete(`/posts/${this.lookedUpSong._id}`);
       this.stories = this.stories.filter((value, index, arr) => {
         return value._id !== this.lookedUpSong._id;
       });
       this.showDialog = false;
       this.deleteDialog = false;
+      this.deleteLoading = false
       this.snackbar = true
     },
 

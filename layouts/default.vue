@@ -2,30 +2,25 @@
 <div id="app" >
   <v-app  light>
     <v-app-bar
-      color="primary"
-      fixed
+      color="secondary"
       dark
       app
       elevate-on-scroll
     >
       <v-app-bar-nav-icon class="hidden-md-and-up" @click="draw = true"></v-app-bar-nav-icon>
 
-      <v-avatar
-        size="40"
-        @click="$router.push('/')"
-        color="grey lighten-5"
-      >
-        <v-img
-          :src="require('@/assets/logo.png')"
+     
+
+
+      <v-toolbar-title @click="$router.push('/')">
+      <v-img
+          :src="require('@/assets/logo2.png')"
           contain
-          height="100%"
+         style="width: 200px"
 
 
         />
-      </v-avatar>
-
-
-      <v-toolbar-title @click="$router.push('/')">Fob News</v-toolbar-title>
+      </v-toolbar-title>
 
 
       <v-spacer></v-spacer>
@@ -95,16 +90,6 @@
        Admin
       </v-btn>
       
-      
-      <v-btn
-        v-else
-        nuxt
-        :to="'/login'"
-        class="ml-0"
-        text
-      >
-        Login
-      </v-btn>
 
     </v-app-bar>
 
@@ -162,7 +147,7 @@
     <v-main>
       <nuxt/>
     </v-main>
-    <Footer/>
+    <Footer class="my-10"/>
   </v-app>
 </div>
 </template>

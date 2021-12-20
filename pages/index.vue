@@ -1,16 +1,24 @@
 <template>
   <div>
     <section class="welcome-background">
-      <v-container style="min-height: 65vh" fluid fill-height>
+      
+      <v-container style="min-height: 50vh" fluid fill-height>
         <v-layout flex align-center justify-center>
+          
           <v-flex class="white--text text-center" xs12 md8 sm6>
-            <h2 class="display-2 font-weight-bold mb-3">FOB NEWS</h2>
+            
+<div style="color: white;" class=" text-h1 font-weight-light">
+FOB NEWS
+</div>
 
-            <v-responsive
-              class="mx-auto title font-weight-light mb-8"
-              max-width="720"
-            >
-              Get involved
+
+            <h2 style="color: white" class="banner2-title font-weight-light">
+              
+              Your
+              <span class="font-italic font-weight-bold">
+                Fair, Objective & Balanced News
+              </span>
+            </h2>
             </v-responsive>
           </v-flex>
         </v-layout>
@@ -87,35 +95,6 @@
           </v-col>
         </v-row>
       </v-container>
-    </section>
-
-    <section style="background-color: #ebebeb" id="about-us">
-      <div class="py-5"></div>
-
-      <v-container light class="text-center">
-        <h2
-          :class="$vuetify.breakpoint.smAndDown ? 'h4' : 'display-2'"
-          class="grey--text text--darken-1 font-weight-bold mb-3"
-        >
-          About Benedictionz
-        </h2>
-
-        <v-responsive class="mx-auto mb-8" width="56">
-          <v-divider class="mb-1"></v-divider>
-
-          <v-divider></v-divider>
-        </v-responsive>
-
-        <div></div>
-
-        <v-btn color="grey" @click="gotoCreateAccount" outlined large>
-          <span class="grey--text text--darken-1 font-weight-bold">
-            Begin your journey with us
-          </span>
-        </v-btn>
-      </v-container>
-
-      <div class="py-12"></div>
     </section>
   </div>
 </template>
@@ -196,6 +175,6 @@ export default {
 
 <style>
 .welcome-background {
-  background-image: linear-gradient(#23a6d5, #0e7a91);
+  background-image: linear-gradient(#242525, #091518);
 }
 </style>

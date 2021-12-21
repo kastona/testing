@@ -7,7 +7,7 @@
           
           <v-flex class="white--text text-center" xs12 md8 sm6>
             
-<div style="color: white;" class=" text-h1 font-weight-light">
+<div style="color: white;" :class="$vuetify.breakpoint.mdAndUp? 'text-h1': 'text-h3'"  class=" font-weight-light">
 FOB NEWS
 </div>
 

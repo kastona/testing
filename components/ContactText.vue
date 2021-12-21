@@ -10,9 +10,8 @@
             <div class="text-center">
               <h2 class="c2a2-title font-weight-medium">About FOB NEWS</h2>
               <h3 class="font-weight-light text-center  mt-0">
-                FOB News (Fair, Objective and Balanced News) is a news platform that brings
-                to you upto date news contents that are fair, objective and balanced, as the name implies.<br><br>
-                FOB News also grants exclusive interviews and special reports.
+                FOB, founded on December 20th, 2021, is your home for reliable News, published by Excellent Media Concepts, Federal Housing Kubwa, Abuja Nigeria.
+                FOB NEWS brings to you Fair, Objective and Balanced stories. FOB is absolutely a professional commitment to ethical multimedia journalism you can rely on.
               </h3>
             </div>
           </v-col>

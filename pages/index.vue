@@ -66,7 +66,7 @@ FOB NEWS
         </v-responsive>
 
         <v-row>
-          <v-col v-for="video in videos" :key="story" cols="12" md="4" sm="6">
+          <v-col v-for="video in videos" :key="video._id" cols="12" md="4" sm="6">
             <VideoCard :post="video"/>
           </v-col>
         </v-row>

@@ -105,7 +105,7 @@
        About
       </v-btn>
       
-<v-menu v-if="$auth.user" offset-y>
+<v-menu class="ml-0 hidden-sm-and-down" offset-y>
         <template v-slot:activator="{ on }">
 
 
@@ -183,27 +183,27 @@
             <v-list-item-title>Interviews</v-list-item-title>
           </v-list-item>
 
-          <v-list-item nuxt :to="'/about'">
-            <v-list-item-title>About</v-list-item-title>
+          <v-list-item nuxt :to="'/news/entertainment'">
+            <v-list-item-title>Entertainment</v-list-item-title>
           </v-list-item>
 
-          <v-list-item nuxt :to="'/about'">
-            <v-list-item-title>About</v-list-item-title>
+          <v-list-item nuxt :to="'/news/health'">
+            <v-list-item-title>Health</v-list-item-title>
           </v-list-item>
-          <v-list-item nuxt :to="'/about'">
-            <v-list-item-title>About</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item nuxt :to="'/about'">
-            <v-list-item-title>About</v-list-item-title>
+          <v-list-item nuxt :to="'/news/agriculture'">
+            <v-list-item-title>Agriculture</v-list-item-title>
           </v-list-item>
 
-          <v-list-item nuxt :to="'/about'">
-            <v-list-item-title>About</v-list-item-title>
+          <v-list-item nuxt :to="'/news/foreign'">
+            <v-list-item-title>Foreign</v-list-item-title>
           </v-list-item>
 
-          <v-list-item nuxt :to="'/about'">
-            <v-list-item-title>About</v-list-item-title>
+          <v-list-item nuxt :to="'/news/local'">
+            <v-list-item-title>Local</v-list-item-title>
+          </v-list-item>
+
+          <v-list-item nuxt :to="'/news/education'">
+            <v-list-item-title>Education</v-list-item-title>
           </v-list-item>
 
           <v-list-item nuxt :to="'/about'">

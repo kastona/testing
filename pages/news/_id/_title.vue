@@ -6,7 +6,7 @@
 
       <v-container class="text-center">
         <h2 class="section-title font-weight-medium">{{ post.title }}</h2>
-        <p class="primary--text"><span style="font-style: italic;">posted</span> {{$moment(post.createdAt).fromNow()}} </p>
+        <p class="primary--text"><span style="font-style: italic;">posted</span> {{$moment(post.createdAt).calendar()}} </p>
         <v-responsive class="mx-auto mb-2" style="max-width: 400px">
           <v-divider></v-divider>
         </v-responsive>

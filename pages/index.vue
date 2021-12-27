@@ -1,27 +1,46 @@
 <template>
   <div>
-    <section class="welcome-background">
-      
-      <v-container style="min-height: 50vh" fluid fill-height>
-        <v-layout flex align-center justify-center>
-          
-          <v-flex class="white--text text-center" xs12 md8 sm6>
-            
-<div style="color: white;" :class="$vuetify.breakpoint.mdAndUp? 'text-h1': 'text-h3'"  class=" font-weight-light">
-FOB NEWS
-</div>
+    <section class="grey lighten-5">
+      <v-container>
+        <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+        <v-row>
+          <v-col cols="12" md="8">
+            <BreakingBig :post="latestStories[0]" />
+          </v-col>
+          <v-col cols="12" md="4">
+            <v-card dark class="mx-auto" max-width="450">
+              <v-toolbar flat color="transparent"> Latest News </v-toolbar>
 
+              <v-list three-line>
+                <v-divider></v-divider>
+                <v-list-item link :href="`/news/${item._id}/${item.seoTitle}`" 
+                  v-for="(item, i) in latestStories.slice(1,4)"
+                  :key="i"
+                  ripple
+                  @click="() => {}"
+                >
+                  <v-img
+                    :src="item.coverUrl"
+                    class="mr-4"
+                    max-width="64"
+                    min-width="64"
+                  ></v-img>
+                  
 
-            <h2 style="color: white" class="banner2-title font-weight-light">
-              
-              Your
-              <span class="font-italic font-weight-bold">
-                Fair, Objective & Balanced News
-              </span>
-            </h2>
-            </v-responsive>
-          </v-flex>
-        </v-layout>
+                  <v-list-item-content>
+                    <div v-text="item.title"></div>
+                    <div class="caption">
+
+                        <span>{{ $moment(item.createdAt).format("ll") }}</span>
+                    </div>
+                    
+                  </v-list-item-content>
+                  
+                </v-list-item>
+              </v-list>
+            </v-card>
+          </v-col>
+        </v-row>
       </v-container>
     </section>
 
@@ -41,16 +60,20 @@ FOB NEWS
         </v-responsive>
 
         <v-row>
-          <v-col v-for="story in topStories" :key="story._id" cols="12" md="4" sm="6">
-            <PostCard :post="story"/>
+          <v-col
+            v-for="story in latestStories.slice(1)"
+            :key="story._id"
+            cols="12"
+            md="4"
+            sm="6"
+          >
+            <PostCard :post="story" />
           </v-col>
         </v-row>
       </v-container>
     </section>
 
-
-
-  <section id="videos">
+    <section id="videos">
       <div class="py-12"></div>
 
       <v-container light class="text-center">
@@ -66,32 +89,14 @@ FOB NEWS
         </v-responsive>
 
         <v-row>
-          <v-col v-for="video in videos" :key="video._id" cols="12" md="4" sm="6">
-            <VideoCard :post="video"/>
-          </v-col>
-        </v-row>
-      </v-container>
-    </section>
-
-
-  <section id="featured">
-      <div class="py-12"></div>
-
-      <v-container light class="text-center">
-        <h2 class="primary--text text--lighten-1 font-weight-bold mb-3">
-          Top News
-        </h2>
-
-        <v-responsive class="mx-auto" width="56">
-          <v-divider
-            v-if="!$vuetify.breakpoint.smAndDown"
-            class="mb-1"
-          ></v-divider>
-        </v-responsive>
-
-        <v-row>
-          <v-col v-for="story in latestStories" :key="story._id" cols="12" md="4" sm="6">
-            <PostCard :post="story"/>
+          <v-col
+            v-for="video in videos"
+            :key="video._id"
+            cols="12"
+            md="4"
+            sm="6"
+          >
+            <VideoCard :post="video" />
           </v-col>
         </v-row>
       </v-container>
@@ -101,12 +106,14 @@ FOB NEWS
 
 <script>
 import { mapGetters } from "vuex";
-import PostCard from '~/components/PostCard'
-import VideoCard from '~/components/VideoCard'
+import PostCard from "~/components/PostCard";
+import VideoCard from "~/components/VideoCard";
+import BreakingBig from "~/components/fob/BreakingBig";
 export default {
   components: {
     PostCard,
-    VideoCard
+    VideoCard,
+    BreakingBig,
   },
 
   data: () => ({
@@ -132,10 +139,10 @@ export default {
   // },
 
   computed: {
-    ...mapGetters({ 
+    ...mapGetters({
       videos: "getTopVideos",
       topStories: "getTopStories",
-      latestStories: "getLatestStories"
+      latestStories: "getLatestStories",
     }),
   },
   methods: {

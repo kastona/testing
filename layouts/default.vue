@@ -105,7 +105,7 @@
        About
       </v-btn>
       
-<v-menu class="ml-0 hidden-sm-and-down" offset-y>
+<v-menu v-if="$vuetify.breakpoint.mdAndUp" offset-y>
         <template v-slot:activator="{ on }">
 
 

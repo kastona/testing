@@ -9,7 +9,7 @@
           <v-col cols="12" sm="10" md="9" lg="7">
             <div class="text-center">
               <h2 class="section-title font-weight-medium">
-                Interviews
+                Health News
               </h2>
             </div>
           </v-col>
@@ -25,20 +25,19 @@
           <v-col v-for="p in posts" :key="p._id" cols="12" md="6" lg="4">
             <PostCard :post="p"/>
           </v-col>
-           <v-col cols="12">
+          <v-col cols="12">
             <div class="text-center pt2">
             <v-pagination v-model="page" :length="pageCount"></v-pagination>
           </div>
           </v-col>
         </v-row>
 
-<v-row  class="text-center" v-else>
+        <v-row  class="text-center" v-else>
           <v-co cols="12">
           <div>There are no stories published under this category yet!</div>
 
           </v-co>
         </v-row>
-
 
         <!-- -----------------------------------------------
             End Portfolio
@@ -50,7 +49,7 @@
 <script>
 import PostCard from '~/components/PostCard'
 export default {
-  name: "Interviews",
+  name: "Crime",
   data() {
     return {
       page: 1,
@@ -59,16 +58,16 @@ export default {
   },
   async asyncData({ $axios, redirect, route, $auth, $router }) {
     try {
-      const itemsPerPage = 10
-      const { posts, postsCount } = await $axios.$get(`/posts?tags=Interview&limit=${itemsPerPage}`);
-
-      return { posts, postsCount, itemsPerPage };
+        const itemsPerPage = 10
+      const { posts, postsCount } = await $axios.$get(`/posts?tags=Health&limit=${itemsPerPage}`);
+      return { posts, postsCount, itemsPerPage};
     } catch (error) {}
   },
   methods: {},
   components: {
     PostCard
-  }, 
+  },
+
 
 watch: {
     async page(number) {
@@ -77,7 +76,7 @@ watch: {
 
       let skip = (number - 1) * this.itemsPerPage;
       const {posts, storiesCount} = await this.$axios.$get(
-        `/posts?skip=${skip}&limit=${this.itemsPerPage}&tags=Interview`
+        `/posts?skip=${skip}&limit=${this.itemsPerPage}&tags=Health`
       );
 
       this.posts = posts;

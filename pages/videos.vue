@@ -48,17 +48,17 @@ export default {
   data() {
     return {
       page: 1,
-      pageCount: 1,
-      itemsPerPage: 2,
+      pageCount: 1
     };
 
   },
 
    async asyncData({ $axios, redirect, route, $auth, $router }) {
     try {
-      const data = await $axios.$get(`/posts?skip=${0}&limit=2&video=true`);
+      const itemsPerPage = 10
+      const data = await $axios.$get(`/posts?skip=${0}&limit=${itemsPerPage}&video=true`);
 
-      return { stories: data.posts, storiesCount: data.postsCount };
+      return { stories: data.posts, storiesCount: data.postsCount, itemsPerPage};
     } catch (error) {}
   },
   components: {

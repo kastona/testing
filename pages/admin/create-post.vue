@@ -227,7 +227,7 @@ export default {
     completed: false,
     showUploadError: false,
     showAdminContact: false,
-    tags: ["Politics", "Crime", "Interview", "Sports"],
+    tags: ["Politics", "Crime", "Interview", "Sports", "Agriculture", "Education", "Entertainment", "Health", "Foreign", "Local"],
 
     row: "audio",
 

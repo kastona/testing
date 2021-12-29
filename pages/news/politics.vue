@@ -53,15 +53,15 @@ export default {
   data() {
     return {
       page: 1,
-      pageCount: 1,
-      itemsPerPage: 2,
+      pageCount: 1
     };
   },
  async asyncData({ $axios, redirect, route, $auth, $router }) {
     try {
-      const { posts, postsCount } = await $axios.$get(`/posts?tags=Politics&limit=2`);
+      const itemsPerPage = 10
+      const { posts, postsCount } = await $axios.$get(`/posts?tags=Politics&limit=${itemsPerPage}`);
 
-      return { posts, postsCount };
+      return { posts, postsCount, itemsPerPage };
     } catch (error) {}
   },
   methods: {},
@@ -80,7 +80,7 @@ watch: {
 
       let skip = (number - 1) * this.itemsPerPage;
       const {posts, storiesCount} = await this.$axios.$get(
-        `/posts?skip=${skip}&limit=${this.itemsPerPage}&tags=Interview`
+        `/posts?skip=${skip}&limit=${this.itemsPerPage}&tags=Politics`
       );
 
       this.posts = posts;

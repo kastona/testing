@@ -7,7 +7,7 @@
           <v-col cols="12" md="8">
             <BreakingBig :post="latestStories[0]" />
           </v-col>
-          <v-col cols="12" md="4">
+          <v-col v-if="$vuetify.breakpoint.mdAndUp" cols="12" md="4">
             <v-card dark class="mx-auto" max-width="450">
               <v-toolbar flat color="transparent"> Latest News </v-toolbar>
 
@@ -45,7 +45,7 @@
     </section>
 
     <section id="featured">
-      <div class="py-12"></div>
+      <div class="py-4"></div>
 
       <v-container light class="text-center">
         <h2 class="primary--text text--lighten-1 font-weight-bold mb-3">

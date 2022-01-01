@@ -1,5 +1,5 @@
 <template>
-  <v-card :href="`/news/${post._id}/${post.seoTitle}`" class="mx-auto">
+  <v-card :ripple="false" :href="`/news/${post._id}/${post.seoTitle}`" class="mx-auto">
     <v-img
       class="white--text align-end"
       gradient=" rgba(0,0,0,0.2), rgba(0,0,0,1)"

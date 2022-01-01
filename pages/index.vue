@@ -1,43 +1,30 @@
 <template>
   <div>
+
+<section class="grey lighten-5">
+        <!-- Stack the columns on mobile by making one full-width and the other half-width -->
+        <v-row>
+          
+          <v-col  cols="12" >
+            <v-expand-transition>
+            <FlashCard :news="latestStories[flashIndex].title"/>
+            </v-expand-transition>
+          </v-col>
+        </v-row>
+</section>
+
+
     <section class="grey lighten-5">
       <v-container>
         <!-- Stack the columns on mobile by making one full-width and the other half-width -->
         <v-row>
+
           <v-col cols="12" md="8">
             <BreakingBig :post="latestStories[0]" />
           </v-col>
-          <v-col v-if="$vuetify.breakpoint.mdAndUp" cols="12" md="4">
-            <v-card dark class="mx-auto" max-width="450">
-              <v-toolbar flat color="transparent"> Latest News </v-toolbar>
-
-              <v-list three-line>
-                <v-divider></v-divider>
-                <v-list-item link :href="`/news/${item._id}/${item.seoTitle}`" 
-                  v-for="(item, i) in latestStories.slice(1,4)"
-                  :key="i"
-                  ripple
-                  @click="() => {}"
-                >
-                  <v-img
-                    :src="item.coverUrl"
-                    class="mr-4"
-                    max-width="64"
-                    min-width="64"
-                  ></v-img>
-                  
-
-                  <v-list-item-content>
-                    <div v-text="item.title"></div>
-                    <div class="caption">
-
-                        <span>{{ $moment(item.createdAt).format("ll") }}</span>
-                    </div>
-                    
-                  </v-list-item-content>
-                  
-                </v-list-item>
-              </v-list>
+          <v-col cols="12" md="4">
+            <v-card color="secondary" class="white--text" height="400px">
+              Ad should be placed here
             </v-card>
           </v-col>
         </v-row>
@@ -109,17 +96,20 @@ import { mapGetters } from "vuex";
 import PostCard from "~/components/PostCard";
 import VideoCard from "~/components/VideoCard";
 import BreakingBig from "~/components/fob/BreakingBig";
+import FlashCard from "~/components/FlashCard"
 export default {
   components: {
     PostCard,
     VideoCard,
     BreakingBig,
+    FlashCard
   },
 
   data: () => ({
     showTopSearch: 0,
     rating: 3,
-
+    flashIndex: 0,
+    reload: false,
     loading: false,
     items: [],
     search: null,
@@ -177,6 +167,18 @@ export default {
       val && this.loadSearch(val);
     },
   },
+
+  mounted() {
+    const self = this
+    setInterval(function () {
+      self.flashIndex +=1;
+      if(self.flashIndex > 5) {
+        self.flashIndex = 0;
+      }
+
+      self.reload = true
+    }, 5000);
+  }
 };
 </script>
 

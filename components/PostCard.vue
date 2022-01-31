@@ -7,14 +7,14 @@
   >
     <v-img
       class="white--text align-end"
-      height="200px"
+      height="250px"
       gradient=" rgba(0,0,0,0.2), rgba(0,0,0,1)"
       :src="post.coverUrl"
     >
       <v-container>
         <v-row>
           <v-col cols="12">
-            <v-card-text class="text-justify text-h5 py-0">{{ post.title }}</v-card-text>
+            <v-card-text  class="text-capitalize py-0"><div :class="$vuetify.breakpoint.smAndDown? 'subtitle-1': 'text-justify headline'">{{ post.title }}</div></v-card-text>
             <v-card-text>
               <v-row class="px-4 grey--text" align="center">
                 <v-avatar size="24" class="mr-2">

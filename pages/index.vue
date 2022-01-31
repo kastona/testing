@@ -1,24 +1,21 @@
 <template>
   <div>
-
-<section class="grey lighten-5">
-        <!-- Stack the columns on mobile by making one full-width and the other half-width -->
-        <v-row>
-          
-          <v-col  cols="12" >
-            <v-expand-transition>
-            <FlashCard :news="latestStories[flashIndex].title"/>
-            </v-expand-transition>
-          </v-col>
-        </v-row>
-</section>
-
+    <!-- <section>
+      <v-container style="min-height: 65vh;" fluid fill-height>
+       <v-layout flex align-center justify-center>
+          <v-flex class="white--text text-center" xs12 md8 sm6>
+        <v-parallax
+          :src="require('@/assets/logo1.png')"
+        ></v-parallax>
+          </v-flex>
+       </v-layout>
+      </v-container>
+    </section> -->
 
     <section class="grey lighten-5">
       <v-container>
         <!-- Stack the columns on mobile by making one full-width and the other half-width -->
         <v-row>
-
           <v-col cols="12" md="8">
             <BreakingBig :post="latestStories[0]" />
           </v-col>
@@ -96,13 +93,13 @@ import { mapGetters } from "vuex";
 import PostCard from "~/components/PostCard";
 import VideoCard from "~/components/VideoCard";
 import BreakingBig from "~/components/fob/BreakingBig";
-import FlashCard from "~/components/FlashCard"
+import FlashCard from "~/components/FlashCard";
 export default {
   components: {
     PostCard,
     VideoCard,
     BreakingBig,
-    FlashCard
+    FlashCard,
   },
 
   data: () => ({
@@ -169,16 +166,16 @@ export default {
   },
 
   mounted() {
-    const self = this
+    const self = this;
     setInterval(function () {
-      self.flashIndex +=1;
-      if(self.flashIndex > 5) {
+      self.flashIndex += 1;
+      if (self.flashIndex > 5) {
         self.flashIndex = 0;
       }
 
-      self.reload = true
+      self.reload = true;
     }, 5000);
-  }
+  },
 };
 </script>
 

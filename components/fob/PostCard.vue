@@ -2,7 +2,7 @@
        <v-card elevation="0" class="blog-card overflow-hidden mb-15">
               <div class="position-relative mb-15">
                 <a  :href="`/news/${p._id}/${p.seoTitle}`">
-                  <v-img :aspect-ratio="16/9" :src="p.coverUrl" alt="blog" class="blog-img" />
+                  <v-img  :aspect-ratio="16/9" :src="p.coverUrl" alt="blog" class="blog-img" />
                 </a>
                 <div class="date-badge bg-info-grediant">
                   {{ $moment(p.createdAt).fromNow() }}

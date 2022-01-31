@@ -7,16 +7,9 @@
           @click="draw = true"
         ></v-app-bar-nav-icon>
 
-        <v-avatar
-          class="mr-3"
-          size="40"
-          @click="$router.push('/')"
-          color="grey lighten-5"
-        >
-          <v-img :src="require('@/assets/fob.png')" contain height="100%" />
-        </v-avatar>
+          
 
-        <v-toolbar-title @click="$router.push('/')"> FOB NEWS</v-toolbar-title>
+        <v-toolbar-title @click="$router.push('/')"> <v-img width="200" :src="require('@/assets/logo2.png')" /></v-toolbar-title>
 
         <v-spacer></v-spacer>
 

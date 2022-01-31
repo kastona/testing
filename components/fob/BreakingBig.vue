@@ -1,6 +1,7 @@
 <template>
-  <v-card :ripple="false" :href="`/news/${post._id}/${post.seoTitle}`" class="mx-auto">
+  <v-card  :ripple="false" :href="`/news/${post._id}/${post.seoTitle}`" class="mx-auto">
     <v-img
+      min-height="300px"
       class="white--text align-end"
       gradient=" rgba(0,0,0,0.2), rgba(0,0,0,1)"
       :src="post.coverUrl"
